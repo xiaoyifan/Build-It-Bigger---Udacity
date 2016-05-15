@@ -30,10 +30,18 @@ dependencies {
 }
 
 appengine {
-  downloadSdk = true
-  appcfg {
-    oauth2 = true
-  }
+    downloadSdk = true
+
+    httpAddress = '0.0.0.0'
+
+    appcfg {
+        oauth2 = false
+
+        logs {
+            severity = 1
+            outputFile = file('mylogs.txt')
+        }
+    }
   endpoints {
     getClientLibsOnBuild = true
     getDiscoveryDocsOnBuild = true
