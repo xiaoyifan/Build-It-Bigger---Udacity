@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Build-It-Bigger---Udacity.iml" filepath="$PROJECT_DIR$/Build-It-Bigger---Udacity.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gce/gce.iml" filepath="$PROJECT_DIR$/gce/gce.iml" />
       <module fileurl="file://$PROJECT_DIR$/javajokes/javajokes.iml" filepath="$PROJECT_DIR$/javajokes/javajokes.iml" />
       <module fileurl="file://$PROJECT_DIR$/jokelibrary/jokelibrary.iml" filepath="$PROJECT_DIR$/jokelibrary/jokelibrary.iml" />
     </modules>

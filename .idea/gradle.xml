@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/gce" />
             <option value="$PROJECT_DIR$/javajokes" />
             <option value="$PROJECT_DIR$/jokelibrary" />
           </set>
