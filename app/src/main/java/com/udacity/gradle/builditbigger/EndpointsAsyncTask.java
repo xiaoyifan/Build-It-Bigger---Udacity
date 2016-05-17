@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.example.yifan.myapplication.backend.jokeApi.JokeApi;
 import com.example.yifan.myapplication.backend.jokeApi.model.JokeBean;
@@ -63,7 +62,11 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+
+        if (mProgressBar != null)
+        {
+            mProgressBar.setVisibility(View.GONE);
+        }
         startJokeActivity(result);
     }
 

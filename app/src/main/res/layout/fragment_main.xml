@@ -8,27 +8,31 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivityFragment">
 
+    <TextView android:text="@string/instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/instructions_text_view"
+        />
+
     <ProgressBar
         android:id="@+id/progressbar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:visibility="gone" />
-
-    <TextView android:text="@string/instructions"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/instructions_text_view"
-        />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/instructions_text_view"
+        android:layout_marginBottom="76dp"
+        android:layout_above="@+id/adView"
         android:text="@string/button_text"
         android:id="@+id/tell_button"
-
+        android:layout_centerHorizontal="true"
         />
 
     <com.google.android.gms.ads.AdView
