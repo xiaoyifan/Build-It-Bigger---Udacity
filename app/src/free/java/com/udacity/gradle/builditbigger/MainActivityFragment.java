@@ -8,14 +8,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment {
+
+    private InterstitialAd mInterstitialAd;
 
     public MainActivityFragment() {
     }
@@ -49,8 +53,41 @@ public class MainActivityFragment extends Fragment {
     public void tellJoke(View view){
 
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressbar);
-        EndpointsAsyncTask task = new EndpointsAsyncTask(progressBar, getContext());
-        task.execute();
+        final EndpointsAsyncTask task = new EndpointsAsyncTask(progressBar, getContext());
+
+        mInterstitialAd = new InterstitialAd(getContext());
+        mInterstitialAd.setAdUnitId("ca-app-pub-2733823621040973/6477787846");
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+
+                if (mInterstitialAd.isLoaded())
+                    mInterstitialAd.show();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                super.onAdFailedToLoad(errorCode);
+
+                task.execute();
+            }
+
+            @Override
+            public void onAdClosed() {
+                task.execute();
+            }
+        });
+        AdRequest ar = new AdRequest
+                .Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        try {
+            mInterstitialAd.loadAd(ar);
+        } catch(java.lang.NoClassDefFoundError error) {
+            error.printStackTrace();
+        }
     }
 
 }
