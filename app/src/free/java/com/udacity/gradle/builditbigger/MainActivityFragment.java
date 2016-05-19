@@ -56,7 +56,7 @@ public class MainActivityFragment extends Fragment {
         final EndpointsAsyncTask task = new EndpointsAsyncTask(progressBar, getContext());
 
         mInterstitialAd = new InterstitialAd(getContext());
-        mInterstitialAd.setAdUnitId("ca-app-pub-2733823621040973/6477787846");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
