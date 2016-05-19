@@ -13,6 +13,38 @@ buildscript {
     }
 }
 
+task runTestsInLocalServer {
+    dependsOn = ['runLocalServer', 'runAndroidTests', 'haltLocalServer']
+}
+
+//reference: https://github.com/asantibanez/udacity-build-it-bigger
+
+task runLocalServer {
+    dependsOn ':gce:appengineRun'
+    project(":gce").afterEvaluate { gce ->
+        gce.extensions.appengine.daemon = true
+    }
+    doLast {
+        println "Server started..."
+    }
+}
+
+task runAndroidTests {
+    shouldRunAfter 'runLocalServer'
+    dependsOn ':app:connectedCheck'
+    doLast {
+        println "Testing finished..."
+    }
+}
+
+task haltLocalServer {
+    shouldRunAfter 'runAndroidTests'
+    dependsOn ':gce:appengineStop'
+    doLast {
+        println "Server stopped..."
+    }
+}
+
 allprojects {
     repositories {
         jcenter()
